@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}首页{% endblock %}
+{% block console-content %}
+
+    <div class="page-title-box">
+        <h4 class="page-title">Yeezy Supply</h4>
+    </div>
+    <!-- start 标签 row-->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <button id="bp" type="button" class="btn btn-primary">手动制作</button>
+                    <button id="auto-bp" type="button" class="btn btn btn-outline-primary">自动BP</button>
+                    <button id="proxy" type="button" class="btn btn btn-outline-primary">代理检查</button>
+                    <button id="add-bot" type="button" class="btn btn-dark btn-rounded" style="position: relative;float: right;">增加BOT</button>
+                    <button id="del-bot" type="button" class="btn btn-light btn-rounded" style="position: relative;float: right;">减少BOT</button>
+                    <div class="form-group row" style="margin-top: 1rem;">
+                        <div class="col-sm-10" style="max-width: 50%">
+                            <div class="input-group">
+                                <input type="text" id="url" class="form-control" placeholder="批量打开网址">
+                            <div class="input-group-append">
+                                <button id="mass-url" type="button" class="btn btn btn-outline-primary">打开</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- start BOT Status row-->
+                    <div class="row">
+                        <div class="col-md-6" style="flex: 0 0 100%; max-width: 100%;">
+                            <ul class="nav nav-tabs mb-3">
+
+                                <li class="nav-item">
+                                    <a href="#Bots" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                    <i class="fe-chrome"></i> Robots(10)
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#Monitor" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                                    <i class="fe-eye-off"></i> Monitor(Off)
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#Tasks" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                                    <i class="fe-pause"></i> Tasks(None)
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#Orders" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                                    <i class="fe-send"></i> Orders(None)
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane show active" id="Bots">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th>Bot Name</th>
+                                            <th>Bypass Key</th>
+                                            <th>Update time</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for b in key_list %}
+                                        <tr>
+                                            <td style="vertical-align: inherit;padding: .6rem;">{{ b.browser_name }}</td>
+                                            <td style="vertical-align: inherit;padding: .6rem;">{{ b.bypass_key }}</td>
+                                            <td style="vertical-align: inherit;padding: .6rem;">{{ b.created }}</td>
+                                            <td style="vertical-align: inherit;padding: .6rem;">{{ b.bypass_status }}</td>
+                                            <td style="vertical-align: inherit;padding: .6rem;"><button type="button" class="btn btn-primary btn-sm">Setting</button></td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="Monitor">
+                                    <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-lg-6 col-xl-3">
+                                        <!-- Simple card -->
+                                        <div class="card d-block">
+                                            <img class="card-img-top img-fluid" src="{% static '/assets/images/small/item-1.jpg' %}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">FLANNEL LINED CANVAS JACKET<br>COLOR MEDIUM BLUE </h5>
+                                                <p class="card-text">$450</p>
+                                                <a href="#" class="btn btn-primary">开始制作Bypass</a>
+                                            </div>
+                                        </div>
+                                    </div><!-- end col -->
+
+                                    <div class="col-lg-6 col-xl-3">
+                                        <!-- Simple card -->
+                                        <div class="card d-block">
+                                            <img class="card-img-top img-fluid" src="{% static '/assets/images/small/item-1.jpg' %}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">FLANNEL LINED CANVAS JACKET<br>COLOR MEDIUM BLUE </h5>
+                                                <p class="card-text">$450</p>
+                                                <a href="#" class="btn btn-primary">开始制作Bypass</a>
+                                            </div>
+                                        </div>
+                                    </div><!-- end col -->
+
+                                        <div class="col-lg-6 col-xl-3">
+                                            <!-- Simple card -->
+                                            <div class="card d-block">
+                                                <img class="card-img-top img-fluid" src="{% static '/assets/images/small/item-1.jpg' %}" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">FLANNEL LINED CANVAS JACKET<br>COLOR MEDIUM BLUE </h5>
+                                                    <p class="card-text">$450</p>
+                                                    <a href="#" class="btn btn-primary">开始制作Bypass</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+    </div>
+                                            </div>
+                                            <div class="tab-pane" id="Tasks">
+                                                <p>内容3</p>
+                                            </div>
+                                            <div class="tab-pane" id="Orders">
+                                                <p>内容3</p>
+                                            </div>
+                                        </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+    </div> <!-- end row-->
+    <!-- end BYPASS状态 ow-->
+    <!-- start 商品状态 row-->
+    <!-- end 商品状态 row-->
+    <script>
+        let id = "#bp";
+        let add = "#add-bot";
+        let del = "#del-bot";
+        let mass = "#mass-url";
+        let auto = "#auto-bp";
+        var auto_on = false;
+        $(document).ready(function()
+		{
+			$.ajax({
+				type:"post",
+				url:"{% url 'checkAutoBp' %}",
+				async:true,
+				data:{'id': 'YS'},
+				success:function(data)//成功取回数据之后的回调函数
+				{
+				    if(data=='success'){
+				        auto_on = true;
+					    $(auto).attr("class","btn btn-primary");
+                        $(auto).text("关闭自动bp");
+                    }else if(data=='error'){
+				        auto_on = false;
+					    $(auto).attr("class","btn btn btn-outline-primary");
+                        $(auto).text("开启自动BP");
+                    } else {
+				        alert('该自动任务尚未注册，请联系管理员')
+                    }
+
+				},
+				error:function()//没能取回数据之后的回调函数
+				{
+					alert('加载自动BP数据错误，请检查数据库是否初始化了任务')
+				}
+			});
+		});
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+        });
+        $(id).click(function(){
+            $(id).attr("disabled","disabled");
+            $(id).attr("class","btn btn-secondary");
+            $(id).text("正在制作");
+          $.post("{% url 'makeBypass' %}",
+          {"id":id},
+          function(){
+            alert("制作完成！");
+            $(id).removeAttr("disabled");
+            $(id).attr("class","btn btn-primary");
+            $(id).text("手动制作");
+            window.location.reload()
+            });
+        });
+        $(add).click(function(){
+            $(add).attr("disabled","disabled");
+            $(add).attr("class","btn btn-secondary btn-rounded");
+            $(add).text("正在制造");
+          $.post("{% url 'addBot' %}",
+          {"id":add},
+          function(){
+            alert("添加成功！");
+            $(add).removeAttr("disabled");
+            $(add).attr("class","btn btn-dark btn-rounded");
+            $(add).text("增加BOT");
+            window.location.reload()
+            });
+        });
+        $(mass).click(function(){
+            let url = $("#url").val();
+            $(mass).attr("disabled","disabled");
+            $(mass).attr("class","btn btn-secondary");
+            $(mass).text("正在打开...");
+          $.post("{% url 'massURL' %}",
+              {"url": url,"id": mass},
+          function(){
+            $(mass).removeAttr("disabled");
+            $(mass).attr("class","btn btn-primary");
+            $(mass).text("打开");
+            window.location.reload()
+            });
+        });
+        $(del).click(function(){
+            $(del).attr("disabled","disabled");
+            $(del).attr("class","btn btn-secondary btn-rounded");
+            $(del).text("正在删除");
+          $.post("{% url 'delBot' %}",
+          {"id":del},
+          function(){
+            alert("成功删除了一个BOT");
+            $(del).removeAttr("disabled");
+            $(del).attr("class","btn btn-dark btn-rounded");
+            $(del).text("减少BOT");
+            window.location.reload()
+            });
+        });
+        $(auto).click(function(){
+            if(auto_on == false){
+                $.post("{% url 'ysautobp' %}",
+                    {"id":'YSON'},
+                    function(){
+                    $(auto).attr("class","btn btn-primary");
+                    $(auto).text("关闭自动bp");
+                    });
+                    window.location.reload()
+                }
+            else if(auto_on == true){
+                $.post("{% url 'ysautobp' %}",
+                    {"id":'YSOFF'},
+                    function(){
+                    $(auto).attr("class","btn btn btn-outline-primary");
+                    $(auto).text("开启自动BP");
+                    });
+                    window.location.reload()
+                }
+            });
+
+    </script>
+{% endblock console-content %}
